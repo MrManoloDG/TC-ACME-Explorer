@@ -34,7 +34,7 @@
               </div>
               <div class="col-md-12">
                 <input type="number" name="price" class="form-control" id="price" formControlName="price"
-                placeholder="{{'trip.price' | translate}}" required autofocus readonly>
+                placeholder="{{'trip.price' | translate}}" required readonly>
               </div>
               <div class="text-danger" *ngIf="tripForm.get('price').errors && tripForm.get('price').touched">
                 {{'errorMessages.validation.min.price' | translate}}

@@ -43,7 +43,6 @@ export class TripFormComponent extends TranslatableComponent implements OnInit, 
   ngOnInit() {
     this.updated = false;
     this.createForm();
-    this.tripForm.controls['price'].setValue(this.totalprice);
     if (this.route.url !== undefined) {
       this.route.url.subscribe(url => {
         if (url[0].path !== 'trips-new') {
@@ -56,14 +55,13 @@ export class TripFormComponent extends TranslatableComponent implements OnInit, 
               } else {
                 this.tripForm.controls['title'].setValue(this.trip.title);
                 this.tripForm.controls['description'].setValue(this.trip.description);
-                this.totalprice = Number(this.trip.price);
-                this.tripForm.controls['price'].setValue(this.trip.price);
                 this.initRequeriments(this.trip.requeriments);
                 this.tripForm.controls['startDate'].setValue(this.formatDate(new Date(this.trip.startDate)));
                 this.tripForm.controls['endDate'].setValue(this.formatDate(new Date(this.trip.endDate)));
                 this.initPictures(this.trip.pictures);
                 this.initStages(this.trip.stages);
-                this.updatePrice();
+                this.totalprice = Number(this.trip.price);
+                this.tripForm.controls['price'].setValue(this.totalprice);
               }
             });
         }
@@ -95,7 +93,7 @@ export class TripFormComponent extends TranslatableComponent implements OnInit, 
     this.tripForm = this.fb.group({
       title: ['', Validators.required],
       description: ['', Validators.required],
-      price: ['', Validators.min(1)],
+      price: [ '' , Validators.min(1)],
       requeriments: this.fb.array(['']),
       startDate: ['', Validators.required],
       endDate: ['', Validators.required],
