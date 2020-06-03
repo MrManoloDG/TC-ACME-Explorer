@@ -107,7 +107,8 @@
         "accept": "Accept",
         "delete.tit": "Are you sure?",
         "delete.msg": "Once deleted, you will not be able to recover this trip!",
-        "discard": "Discard"
+        "discard": "Discard",
+        "publish": "Publish"
     },
     "admin": {
         "admin": "Administrator",
@@ -126,6 +127,7 @@
         "trip.deleted": "Trip successfully deleted",
         "trip.created": "Trip successfully created",
         "trip.updated": "Trip successfully updated",
+        "trip.published": "Trip successfully published",
         "trip.canceled": "Trip successfully canceled",
         "finder.saved": "Finder successfully saved. Finder are saved over one hour in the system",
         "back": "Back",
@@ -150,6 +152,7 @@
         "denied.access.message": "You don't have permission to access {{resource}} on this server",
         "no.trips.found": "No trips found",
         "validation.required": "Required field",
+        "validation.min.price": "Price have to be greater than 1",
         "validation.maxlength": "Too much length field",
         "500": "Something go bad in our servers",
         "422": "There are something wrong in the form",
