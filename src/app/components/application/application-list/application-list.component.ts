@@ -19,6 +19,7 @@ export class ApplicationListComponent extends TranslatableComponent implements O
 
   data: any[] = [];
   tripAux: Trip = null;
+  dateToday: Date = new Date();
 
   constructor(private applicatioService: ApplicationsService, private translateService: TranslateService, public authService: AuthService,
     private router: Router, private route: ActivatedRoute, private tripService: TripService) {
@@ -190,6 +191,18 @@ export class ApplicationListComponent extends TranslatableComponent implements O
     }
 
     return color;
+ }
+
+ dateNotPassed(fechaIniTrip: Date) {
+  const today = new Date(formatDate(new Date(), 'yyyy-MM-dd hh:mm:ss', 'es_ES'));
+  const todayNumber = today.getTime();
+  const dateTrip = new Date(fechaIniTrip).getTime();
+  const diff = dateTrip - todayNumber;
+  if (diff < 0) {
+    return false;
+  } else {
+    return true;
+  }
  }
 
 }

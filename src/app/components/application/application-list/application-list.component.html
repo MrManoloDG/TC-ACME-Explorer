@@ -155,9 +155,9 @@
             </td>
 
             <!-- boton CANCELAR VIAJE MANAGER / EXPLORER -->
-            <td>
+            <td *ngIf="item.tripObj !== undefined">
                 <a  *ngIf="(this.authService.checkRole('MANAGER') && item.status === 'PENDING') ||
-                            (this.authService.checkRole('EXPLORER') && item.status === 'ACCEPTED')"       
+                            (this.authService.checkRole('EXPLORER') && item.status === 'ACCEPTED' && dateNotPassed(item.tripObj.startDate))"       
                     [routerLink]="['/trips-applies/display/' + item._id, {'paramKey': 'cancelar'}]"
                     class="btn btn-primary btn-application">
                     <!-- <span class="fa fa-edit" aria-hidden="true"></span> -->
