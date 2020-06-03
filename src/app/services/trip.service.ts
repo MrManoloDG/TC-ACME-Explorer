@@ -79,6 +79,19 @@ export class TripService {
     });
   }
 
+  async publishTrip(id: string) {
+    const url = `${environment.backendApiBaseURL}/v1/trips/${id}/publish`;
+    const headers = new HttpHeaders();
+    headers.append('Content-Type', 'application/json');
+    const body = JSON.stringify({});
+    return new Promise<any>((resolve, reject) => {
+      this.http.put(url, body, httpOptions).toPromise()
+        .then(res => {
+          resolve(res);
+        }, err => {console.error(err); reject(err); });
+    });
+  }
+
   getTripsOfManager(id: string) {
     const url = `${environment.backendApiBaseURL}/v1/trips/manager/${id}`;
     return this.http.get<Trip[]>(url).toPromise();

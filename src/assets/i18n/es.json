@@ -106,7 +106,8 @@
         "accept": "Aceptar",
         "delete.tit": "¿Estás seguro?",
         "delete.msg": "¡Una vez borrado, no podras recuperar este viaje!",
-        "discard": "Descartar"
+        "discard": "Descartar",
+        "publish": "Publicar"
     },
     "admin": {
         "admin": "Administrador",
@@ -126,6 +127,7 @@
         "trip.deleted": "Viaje eliminado correctamente",
         "trip.created": "Viaje creado correctamente",
         "trip.updated": "Viaje modificado correctamente",
+        "trip.published": "Viaje publicado correctamente",
         "trip.canceled": "Viaje cancelado correctamente",
         "finder.saved": "Filtro guardado correctamente. Los filtros solo duran una hora en el sistema",
         "back": "Atrás",
@@ -150,6 +152,7 @@
         "denied.access.message": "No tiene permiso para acceder a {{resource}} en este servidor",
         "no.trips.found": "No se encontraron viajes",
         "validation.required": "Campo requerido",
+        "validation.min.price": "El precio debe ser superior a 1",
         "validation.maxlength": "Campo muy extenso",
         "500": "Algo ha ido mal en nuestros servidores",
         "422": "Hay un error en su formulario",

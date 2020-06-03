@@ -63,6 +63,7 @@ export class TripFormComponent extends TranslatableComponent implements OnInit, 
                 this.tripForm.controls['endDate'].setValue(this.formatDate(new Date(this.trip.endDate)));
                 this.initPictures(this.trip.pictures);
                 this.initStages(this.trip.stages);
+                this.updatePrice();
               }
             });
         }
@@ -94,7 +95,7 @@ export class TripFormComponent extends TranslatableComponent implements OnInit, 
     this.tripForm = this.fb.group({
       title: ['', Validators.required],
       description: ['', Validators.required],
-      price: ['', Validators.required],
+      price: ['', Validators.min(1)],
       requeriments: this.fb.array(['']),
       startDate: ['', Validators.required],
       endDate: ['', Validators.required],
@@ -326,6 +327,15 @@ export class TripFormComponent extends TranslatableComponent implements OnInit, 
     } else {
       return result;
     }
+  }
+
+  publishTrip() {
+    this.tripService.publishTrip(this.trip.ticker).then(val => {
+      this.trip.isPublished = true;
+      swal(this.translateService.instant('messages.trip.published'));
+    }, err => {
+      swal(this.translateService.instant('errorMessages.500'));
+    });
   }
 
 }

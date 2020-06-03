@@ -36,8 +36,8 @@
                 <input type="number" name="price" class="form-control" id="price" formControlName="price"
                 placeholder="{{'trip.price' | translate}}" required autofocus readonly>
               </div>
-              <div class="text-danger" *ngIf="tripForm.get('price').errors && tripForm.get('price').touched && tripForm.get('price').errors.required">
-                {{'errorMessages.validation.required' | translate}}
+              <div class="text-danger" *ngIf="tripForm.get('price').errors && tripForm.get('price').touched">
+                {{'errorMessages.validation.min.price' | translate}}
               </div>
             </div>
           </div>
@@ -153,8 +153,9 @@
       <input type="text" hidden="true" formControlName="manager">  
       <hr>
       <div class="mb-2 mt-4">
-        <button type="submit" class="mr-4 btn btn-primary">{{'trip.save' | translate}}</button>
+        <button type="submit" [disabled]="tripForm.invalid" class="mr-4 btn btn-primary">{{'trip.save' | translate}}</button>
         <button type="button" class="mr-4 btn btn-outline-secondary" (click)="goBack()">{{'trip.cancel' | translate}}</button>
+        <button type="button" *ngIf="!this.trip_new && !this.trip.isPublished" class="mr-4 btn btn-secondary" (click)="publishTrip()">{{'trip.publish' | translate}}</button>
         <button *ngIf="!this.trip_new" type="button" class="float-right btn btn-danger mx-1" (click)="deleteTrip()">{{'trip.delete' | translate}}</button>
         <button *ngIf="!this.trip_new" type="button" class="float-right btn btn-danger mx-1" (click)="cancelTrip()">{{'trip.cancel.trip' | translate}}</button>
       </div>
