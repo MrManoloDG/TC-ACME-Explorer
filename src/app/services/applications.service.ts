@@ -8,6 +8,7 @@ import { MessageService } from './message.service';
 import { Subject } from 'rxjs';
 import { InfoMessage } from '../models/info-message.model';
 import { TranslateService } from '@ngx-translate/core';
+import swal from 'sweetalert';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -65,9 +66,11 @@ export class ApplicationsService {
         .then(res => {
           resolve(res);
           this.messageService.notifyMessage('application.update.due.ok', 'alert alert-success');
+          swal({text: this.translate.instant('application.update.due.ok'), icon: 'success'});
           this.appliUpdated.next(true);
         }, err => {
           this.messageService.notifyMessage('application.update.due.error', 'alert alert-danger');
+          swal({text: this.translate.instant('application.update.due.error'), icon: 'success'});
           this.appliUpdated.next(false);
           reject(err);
         });
@@ -89,11 +92,13 @@ export class ApplicationsService {
           const mesAux = this.translate.instant('paypal.pay.ok');
           const mes = mesAux + ' [' + itemId + ']';
           this.messageService.notifyMessage(mes, 'alert alert-success');
+          swal({text: mes, icon: 'success'});
           this.appliUpdated.next(true);
         }, err => {
           const mesAux = this.translate.instant('paypal.pay.error');
           const mes = mesAux + ' - ' + err.status + ': ' + err.error;
           this.messageService.notifyMessage(mes, 'alert alert-danger');
+          swal({text: mes, icon: 'error'});
           this.appliUpdated.next(false);
           reject(err);
         });
@@ -140,10 +145,12 @@ export class ApplicationsService {
                 .then(res => {
                   resolve(res);
                   this.messageService.notifyMessage(mes, 'alert alert-success');
+                  swal({text: mes, icon: 'success'});
                 }, err => {
                   const mesAux = this.translate.instant('application.cancel.error');
                   mes = mesAux + ' - ' + err.status + ': ' + err.error;
                   this.messageService.notifyMessage(mes, 'alert alert-danger');
+                  swal({text: mes, icon: 'error'});
                   // console.log('err: ' + err.error);
                   reject(err);
                 });
@@ -173,10 +180,12 @@ export class ApplicationsService {
           const mesAux = this.translate.instant('application.edit.ok');
           const mes = mesAux + ' [' + applyId + ']';
           this.messageService.notifyMessage(mes, 'alert alert-success');
+          swal({text: mes, icon: 'success'});
         }, err => {
           const mesAux = this.translate.instant('application.edit.error');
           const  mes = mesAux + ' - ' + err.status + ': ' + err.error;
           this.messageService.notifyMessage(mes, 'alert alert-danger');
+          swal({text: mes, icon: 'error'});
           reject(err);
         });
     });
