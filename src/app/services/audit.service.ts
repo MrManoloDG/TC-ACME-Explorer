@@ -111,8 +111,8 @@ export class AuditService {
       // console.log('url: ' + url);
 
     } else {
-      swal({text: 'User null', icon: 'success'});
-      // this.messageService.notifyMessage('User null', 'alert alert-success');
+      // swal({text: 'User null', icon: 'success'});
+      this.messageService.notifyMessage('User null', 'alert alert-success');
 
     }
 
