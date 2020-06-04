@@ -32,7 +32,7 @@ export class ApplicationPage {
     const loginButton = element(by.id('loginbutton'));
     browser.wait(EC.elementToBeClickable(loginButton), 5000);
     loginButton.click();
-    browser.wait(EC.visibilityOf(element(by.id('messagealerts'))), 5000);
+    browser.wait(EC.visibilityOf(element(by.css('.swal-modal'))), 5000);
   }
 
   applyTrip() {
@@ -46,8 +46,8 @@ export class ApplicationPage {
     return browser.executeScript(function () { arguments[0].scrollIntoView(); }, applyButton.getWebElement()).then(function () {
         browser.wait(EC.elementToBeClickable(applyButton), 5000);
         applyButton.click();
-        browser.wait(EC.visibilityOf(element(by.id('messagealerts'))), 5000);
-        return element(by.id('messagealerts')).getText();
+        browser.wait(EC.visibilityOf(element(by.css('.swal-modal'))), 5000);
+        return element(by.css('.swal-modal')).getText();
     });
   }
 

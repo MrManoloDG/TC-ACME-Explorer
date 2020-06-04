@@ -40,9 +40,9 @@ export class RegisterPage {
         element(by.id('phone')).sendKeys(data.phone);
         browser.wait(EC.elementToBeClickable(registerButton), 5000);
         registerButton.click();
-        browser.wait(EC.visibilityOf(element(by.id('messagealerts'))), 10000);
+        browser.wait(EC.visibilityOf(element(by.css('.swal-modal'))), 10000);
         browser.sleep(10000);
-        return element(by.id('messagealerts')).getText();
+        return element(by.css('.swal-modal')).getText();
     });
   }
 
