@@ -148,7 +148,7 @@ describe('SponsorDisplayComponent', () => {
 
  beforeEach(() => {
     originalTimeout = jasmine.DEFAULT_TIMEOUT_INTERVAL;
-    jasmine.DEFAULT_TIMEOUT_INTERVAL = 1000;
+    jasmine.DEFAULT_TIMEOUT_INTERVAL = 5000;
     fixture = TestBed.createComponent(SponsorDisplayComponent);
     component = fixture.componentInstance;
     mockActivatedRoute.testParams = { id: '5e94a29fb83b5a0019eaa9ec' };

@@ -148,7 +148,7 @@ describe('TripDisplayComponent', () => {
 
   beforeEach(() => {
     originalTimeout = jasmine.DEFAULT_TIMEOUT_INTERVAL;
-    jasmine.DEFAULT_TIMEOUT_INTERVAL = 1000;
+    jasmine.DEFAULT_TIMEOUT_INTERVAL = 15000;
     fixture = TestBed.createComponent(TripDisplayComponent);
     component = fixture.componentInstance;
     mockActivatedRoute.testParams = { id: '200409-LEEM' };
