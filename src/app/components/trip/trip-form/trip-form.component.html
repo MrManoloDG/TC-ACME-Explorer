@@ -134,6 +134,8 @@
         <div class="row my-4">
           <div class="col-md-12 field-label-responsive">
             <label for="pictures">{{'trip.pictures' | translate}}</label>
+            <br>
+            <span class="text-muted">{{'errorMessages.longfile.trip' | translate}}</span>
           </div>
           <div formArrayName="pictures" class="col-md-12 my-1"
             *ngFor="let picture of getControls(tripForm, 'pictures'); let i = index;">
