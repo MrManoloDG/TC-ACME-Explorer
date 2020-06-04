@@ -12,6 +12,7 @@ import { AuditService } from 'src/app/services/audit.service';
 import { Audit } from 'src/app/models/audit.model';
 import { SponsorshipService } from 'src/app/services/sponsorship.service';
 import { Sponsorship } from 'src/app/models/sponsorship.model';
+import swal from 'sweetalert';
 
 @Component({
   selector: 'app-trip-display',
@@ -138,6 +139,9 @@ export class TripDisplayComponent extends TranslatableComponent implements OnIni
           .then((appli) => {
             // console.log('appli detail: ' + appli);
             this.messageService.notifyMessage('application.appli.success', 'alert alert-success');
+
+            swal({text: this.translateService.instant('application.appli.success'), icon: 'success'});
+
             document.body.scrollTop = 0; // For Safari
             document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
           })
@@ -147,6 +151,7 @@ export class TripDisplayComponent extends TranslatableComponent implements OnIni
             const mes = err.status + ' - ' + err.error;
             // this.messageService.notifyMessage('application.appli.fail', 'alert alert-danger');
             this.messageService.notifyMessage(mes, 'alert alert-danger');
+            swal({text: mes, icon: 'error'});
           });
 
       } else {

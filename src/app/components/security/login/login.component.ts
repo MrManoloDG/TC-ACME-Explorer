@@ -6,6 +6,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { TranslatableComponent } from '../../shared/translatable/translatable.component';
 import { Actor } from 'src/app/models/actor.model';
 import { MessageService } from 'src/app/services/message.service';
+import swal from 'sweetalert';
 
 @Component({
   selector: 'app-login',
@@ -48,6 +49,7 @@ export class LoginComponent extends TranslatableComponent implements OnInit {
     const password = form.value.password;
     if (email === '' || password === '') {
       this.messageService.notifyMessage(this.translateService.instant('errorMessages.auth.login.empty.fields'), 'alert alert-danger');
+      swal({text: this.translateService.instant('errorMessages.auth.login.empty.fields'), icon: 'error'});
     } else {
       this.authService.login(email, password).then(_ => {
         form.reset();
@@ -59,11 +61,14 @@ export class LoginComponent extends TranslatableComponent implements OnInit {
         // console.log(error);
         if (error.code === 'auth/argument-error') {
           this.messageService.notifyMessage(this.translateService.instant('errorMessages.auth.argument.error'), 'alert alert-danger');
+          swal({text: this.translateService.instant('errorMessages.auth.argument.error'), icon: 'error'});
         } else {
           if (error.status === 401) {
             this.messageService.notifyMessage(this.translateService.instant('errorMessages.auth.wrong.login'), 'alert alert-danger');
+            swal({text: this.translateService.instant('errorMessages.auth.wrong.login'), icon: 'error'});
           } else {
             this.messageService.notifyMessage(this.translateService.instant('errorMessages.auth.login.not.login'), 'alert alert-danger');
+            swal({text: this.translateService.instant('errorMessages.auth.login.not.login'), icon: 'error'});
           }
         }
         // this.errorMessage = 'Error Login: ' + error;
