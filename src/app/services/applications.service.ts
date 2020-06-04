@@ -42,7 +42,7 @@ export class ApplicationsService {
 
     } else {
       this.messageService.notifyMessage('User null', 'alert alert-success');
-
+      swal({text: 'User null', icon: 'success'});
     }
 
     return this.http.get<Application[]>(url).toPromise();
