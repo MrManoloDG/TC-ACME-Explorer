@@ -3,7 +3,7 @@
 import { Component, OnInit, ViewChild, ElementRef, NgZone } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-
+import swal from 'sweetalert';
 import { TranslateService } from '@ngx-translate/core';
 import { TranslatableComponent } from '../../shared/translatable/translatable.component';
 import { AuthService } from 'src/app/services/auth.service';
@@ -123,7 +123,8 @@ export class RegisterComponent extends TranslatableComponent implements OnInit {
     this.authService.registerUser(this.registrationForm.value)
       .then(res => {
         console.log('Registration success: ' + res);
-        this.messageService.notifyMessage(this.translateService.instant('messages.auth.registration.correct'), 'alert alert-success');
+        swal({text: this.translateService.instant('messages.auth.registration.correct'), icon: 'success'});
+        // this.messageService.notifyMessage(this.translateService.instant('messages.auth.registration.correct'), 'alert alert-success');
         if (this.admin) {
           this.router.navigate(['/actors']);
         } else {
@@ -132,10 +133,12 @@ export class RegisterComponent extends TranslatableComponent implements OnInit {
       }, err => {
         // console.log(err);
         if (err.code === 'auth/email-already-in-use') {
-          this.messageService.notifyMessage(
-            this.translateService.instant('errorMessages.auth.registration.email.used'), 'alert alert-danger');
+          swal({text: this.translateService.instant('errorMessages.auth.registration.email.used'), icon: 'error'});
+          // this.messageService.notifyMessage(
+          //  this.translateService.instant('errorMessages.auth.registration.email.used'), 'alert alert-danger');
         } else {
-          this.messageService.notifyMessage(this.translateService.instant('errorMessages.500'), 'alert alert-danger');
+          swal({text: this.translateService.instant('errorMessages.500'), icon: 'error'});
+          // this.messageService.notifyMessage(this.translateService.instant('errorMessages.500'), 'alert alert-danger');
         }
       });
   }

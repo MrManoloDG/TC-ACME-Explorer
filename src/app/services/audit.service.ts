@@ -6,6 +6,7 @@ import { AuthService } from './auth.service';
 import { Actor } from '../models/actor.model';
 import { MessageService } from './message.service';
 import { TranslateService } from '@ngx-translate/core';
+import swal from 'sweetalert';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -44,11 +45,13 @@ export class AuditService {
           resolve(res);
           const mesAux = this.translate.instant('audits.audit.edit.ok');
           const mes = mesAux + ' [' + auditId + ']';
-          this.messageService.notifyMessage(mes, 'alert alert-success');
+          swal({text: mes, icon: 'success'});
+          // this.messageService.notifyMessage(mes, 'alert alert-success');
         }, err => {
           const mesAux = this.translate.instant('audits.audit.edit.error');
           const  mes = mesAux + ' - ' + err.status + ': ' + err.error;
-          this.messageService.notifyMessage(mes, 'alert alert-danger');
+          swal({text: mes, icon: 'error'});
+          // this.messageService.notifyMessage(mes, 'alert alert-danger');
           reject(err);
         });
     });
@@ -70,11 +73,13 @@ export class AuditService {
           resolve(res);
           const mesAux = this.translate.instant('audits.audit.new.ok');
           const mes = mesAux + ' [' + title + ']';
-          this.messageService.notifyMessage(mes, 'alert alert-success');
+          swal({text: mes, icon: 'success'});
+          // this.messageService.notifyMessage(mes, 'alert alert-success');
         }, err => {
           const mesAux = this.translate.instant('audits.audit.new.error');
           const  mes = mesAux + ' - ' + err.status + ': ' + err.error;
-          this.messageService.notifyMessage(mes, 'alert alert-danger');
+          swal({text: mes, icon: 'error'});
+          // this.messageService.notifyMessage(mes, 'alert alert-danger');
           reject(err);
         });
     });
@@ -106,7 +111,8 @@ export class AuditService {
       // console.log('url: ' + url);
 
     } else {
-      this.messageService.notifyMessage('User null', 'alert alert-success');
+      swal({text: 'User null', icon: 'success'});
+      // this.messageService.notifyMessage('User null', 'alert alert-success');
 
     }
 

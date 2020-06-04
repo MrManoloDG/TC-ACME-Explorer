@@ -220,12 +220,15 @@ export class TripFormComponent extends TranslatableComponent implements OnInit, 
             if (willDelete) {
               this.tripService.deleteTrip(this.trip.ticker).then( (val) => {
                 this.router.navigate(['/trips-created']);
-                this.messageService.notifyMessage(this.translateService.instant('messages.trip.deleted'), 'alert alert-success');
+                swal({text: this.translateService.instant('messages.trip.deleted'), icon: 'success'});
+                // this.messageService.notifyMessage(this.translateService.instant('messages.trip.deleted'), 'alert alert-success');
               }, err => {
                 if (err.status === 422) {
-                  this.messageService.notifyMessage(this.translateService.instant('errorMessages.422'), 'alert alert-danger');
+                  swal({text: this.translateService.instant('errorMessages.422'), icon: 'error'});
+                  // this.messageService.notifyMessage(this.translateService.instant('errorMessages.422'), 'alert alert-danger');
                 } else {
-                  this.messageService.notifyMessage(this.translateService.instant('errorMessages.500'), 'alert alert-danger');
+                  swal({text: this.translateService.instant('errorMessages.500'), icon: 'error'});
+                  // this.messageService.notifyMessage(this.translateService.instant('errorMessages.500'), 'alert alert-danger');
                 }
               });
             }
@@ -242,25 +245,30 @@ export class TripFormComponent extends TranslatableComponent implements OnInit, 
       this.tripService.postTrip(formTrip).then( val => {
         this.updated = true;
         this.router.navigate(['/trips-created']);
-        this.messageService.notifyMessage(this.translateService.instant('messages.trip.created'), 'alert alert-success');
-        // TODO : poner mensaje creado
+        swal({text: this.translateService.instant('messages.trip.created'), icon: 'success'});
+        // this.messageService.notifyMessage(this.translateService.instant('messages.trip.created'), 'alert alert-success');
       }, err => {
         if (err.status === 422) {
-          this.messageService.notifyMessage(this.translateService.instant('errorMessages.422'), 'alert alert-danger');
+          swal({text: this.translateService.instant('errorMessages.422'), icon: 'error'});
+          // this.messageService.notifyMessage(this.translateService.instant('errorMessages.422'), 'alert alert-danger');
         } else {
-          this.messageService.notifyMessage(this.translateService.instant('errorMessages.500'), 'alert alert-danger');
+          swal({text: this.translateService.instant('errorMessages.500'), icon: 'error'});
+          // this.messageService.notifyMessage(this.translateService.instant('errorMessages.500'), 'alert alert-danger');
         }
       });
     } else {
       this.tripService.updateTrip(formTrip, this.trip.ticker).then( val => {
         this.updated = true;
         this.router.navigate(['/trips-created']);
-        this.messageService.notifyMessage(this.translateService.instant('messages.trip.updated'), 'alert alert-success');
+        swal({text: this.translateService.instant('messages.trip.updated'), icon: 'success'});
+        // this.messageService.notifyMessage(this.translateService.instant('messages.trip.updated'), 'alert alert-success');
       }, err => {
         if (err.status === 422) {
-          this.messageService.notifyMessage(this.translateService.instant('errorMessages.422'), 'alert alert-danger');
+          swal({text: this.translateService.instant('errorMessages.422'), icon: 'error'});
+          // this.messageService.notifyMessage(this.translateService.instant('errorMessages.422'), 'alert alert-danger');
         } else {
-          this.messageService.notifyMessage(this.translateService.instant('errorMessages.500'), 'alert alert-danger');
+          swal({text: this.translateService.instant('errorMessages.500'), icon: 'error'});
+          // this.messageService.notifyMessage(this.translateService.instant('errorMessages.500'), 'alert alert-danger');
         }
       });
     }

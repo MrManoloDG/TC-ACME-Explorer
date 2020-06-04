@@ -128,9 +128,11 @@ export class TripListComponent extends TranslatableComponent implements OnInit {
         'maxDate': this.maxDate
       }, this.actor._id)
         .then((val) => {
-          this.messageService.notifyMessage(this.translateService.instant('messages.finder.saved'), 'alert alert-success');
+          swal({text: this.translateService.instant('messages.finder.saved'), icon: 'success'});
+          // this.messageService.notifyMessage(this.translateService.instant('messages.finder.saved'), 'alert alert-success');
         }, err => {
-          this.messageService.notifyMessage(this.translateService.instant('errorMessages.500'), 'alert alert-danger');
+          swal({text: this.translateService.instant('errorMessages.500'), icon: 'error'});
+          // this.messageService.notifyMessage(this.translateService.instant('errorMessages.500'), 'alert alert-danger');
         });
     }
 

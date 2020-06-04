@@ -179,7 +179,8 @@ export class EditProfileComponent implements OnInit, CanComponentDeactivate {
               const mes = mesAux + this.actor.email;
               // this.errorMessage = mes;
               this.errorMessage = '';
-              this.messageService.notifyMessage(mes, 'alert alert-success');
+              swal({text: this.translate.instant('actor.edit.success') + this.actor.email , icon: 'success'});
+              // this.messageService.notifyMessage(mes, 'alert alert-success');
               // this.router.navigate(['/index']);
             })
             .catch((err) => {
@@ -193,7 +194,8 @@ export class EditProfileComponent implements OnInit, CanComponentDeactivate {
       });
     } else {
       console.log('error');
-      this.messageService.notifyMessage(this.translate.instant('errorMessages.422'), 'alert alert-danger');
+      swal({text: this.translate.instant('errorMessages.422'), icon: 'error'});
+      // this.messageService.notifyMessage(this.translate.instant('errorMessages.422'), 'alert alert-danger');
     }
 
   }
