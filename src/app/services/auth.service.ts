@@ -84,14 +84,14 @@ export class AuthService implements OnInit {
                       this.setCurrentActor(res);
                       this.change.emit();
                       this.userLoggedIn.next(true);
-                      this.messageService.notifyMessage('messages.auth.login.correct', 'alert alert-success');
+                      // this.messageService.notifyMessage('messages.auth.login.correct', 'alert alert-success');
                       resolve(token);
                     }
                   );
               })
               .catch(error => {
                 console.log(error);
-                this.messageService.notifyMessage('messages.auth.login.failed', 'alert alert-danger');
+                // this.messageService.notifyMessage('messages.auth.login.failed', 'alert alert-danger');
                 reject(error);
               });
           } else {
