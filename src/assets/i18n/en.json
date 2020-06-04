@@ -158,7 +158,8 @@
         "422": "There are something wrong in the form",
         "trip.have.applications": "Can't delete this trip. This trip have applications",
         "trip.cancel.date": "You can't cancel a trip without a week's notice",
-        "empty.cancel.input": "You need to write something!"
+        "empty.cancel.input": "You need to write something!",
+        "longfile.trip": "The file has to be lower than 30KB"
     },
     "application": {
         "appli.applis": "Applications",

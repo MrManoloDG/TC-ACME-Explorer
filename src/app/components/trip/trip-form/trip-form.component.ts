@@ -191,14 +191,17 @@ export class TripFormComponent extends TranslatableComponent implements OnInit, 
 
     if (event.target.files && event.target.files.length) {
       const [file] = event.target.files;
-
-      reader.addEventListener('loadend', function () {
-        res = reader.result;
-        showOut.value = res;
-        picture.setValue(res);
-        pic.src = res;
-      });
-      reader.readAsDataURL(file);
+      if (file.size > 27000) {
+        swal({text: this.translateService.instant('errorMessages.longfile.trip'), icon: 'warning'});
+      } else {
+        reader.addEventListener('loadend', function () {
+          res = reader.result;
+          showOut.value = res;
+          picture.setValue(res);
+          pic.src = res;
+        });
+        reader.readAsDataURL(file);
+      }
     }
   }
 

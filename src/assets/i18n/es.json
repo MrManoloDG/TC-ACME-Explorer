@@ -157,7 +157,8 @@
         "500": "Algo ha ido mal en nuestros servidores",
         "422": "Hay un error en su formulario",
         "trip.have.applications": "No se puede borrar este viaje. Este viaje tiene solicitudes",
-        "trip.cancel.date": "No se puede cancelar un viaje sin una semana de antelación"
+        "trip.cancel.date": "No se puede cancelar un viaje sin una semana de antelación",
+        "longfile.trip": "El archivo no puede superar los 30KB"
     },
     "application": {
         "appli.applis": "Solicitudes",
