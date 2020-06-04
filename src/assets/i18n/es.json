@@ -161,6 +161,7 @@
     },
     "application": {
         "appli.applis": "Solicitudes",
+        "appli.accept": "Aceptar",
         "appli.apply": "Solicitar",
         "appli.success" : "Viaje solicitado correctamente!",
         "appli.fail" : "No se ha podido solicitar el viaje!",

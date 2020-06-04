@@ -162,6 +162,7 @@
     },
     "application": {
         "appli.applis": "Applications",
+        "appli.accept": "Acept",
         "appli.apply": "Apply",
         "appli.success" : "Application trip successfully!",
         "appli.fail" : "Trip cannot be applied!",
