@@ -47,6 +47,7 @@ export class ApplicationPage {
         browser.wait(EC.elementToBeClickable(applyButton), 5000);
         applyButton.click();
         browser.wait(EC.visibilityOf(element(by.css('.swal-modal'))), 5000);
+        browser.sleep(10000);
         return element(by.css('.swal-modal')).getText();
     });
   }

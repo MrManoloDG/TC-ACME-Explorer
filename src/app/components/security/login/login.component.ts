@@ -55,6 +55,7 @@ export class LoginComponent extends TranslatableComponent implements OnInit {
         form.reset();
         this.email = email;
          this.router.navigate(['/index', {name: this.email}]);
+         swal({text: this.translateService.instant('messages.auth.login.correct'), icon: 'success'});
         // this.router.navigateByUrl(this.returnUrl);
         // console.log('data: ' + data); // devuelve el token
       }).catch((error) => {

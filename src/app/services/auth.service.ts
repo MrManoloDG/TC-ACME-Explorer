@@ -7,6 +7,7 @@ import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Subject } from 'rxjs';
 import { MessageService } from './message.service';
+import swal from 'sweetalert';
 
 // import { from } from 'rxjs';
 
@@ -144,7 +145,7 @@ export class AuthService implements OnInit {
             });
           // resolve(res);
         }, err => {
-          this.messageService.notifyMessage('messages.auth.login.failed', 'alert alert-danger');
+          // this.messageService.notifyMessage('messages.auth.login.failed', 'alert alert-danger');
           reject(err);
         });
     });
