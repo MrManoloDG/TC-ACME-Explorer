@@ -48,7 +48,7 @@ export class LoginComponent extends TranslatableComponent implements OnInit {
     const email = form.value.email;
     const password = form.value.password;
     if (email === '' || password === '') {
-      this.messageService.notifyMessage(this.translateService.instant('errorMessages.auth.login.empty.fields'), 'alert alert-danger');
+      // this.messageService.notifyMessage(this.translateService.instant('errorMessages.auth.login.empty.fields'), 'alert alert-danger');
       swal({text: this.translateService.instant('errorMessages.auth.login.empty.fields'), icon: 'error'});
     } else {
       this.authService.login(email, password).then(_ => {
@@ -60,14 +60,14 @@ export class LoginComponent extends TranslatableComponent implements OnInit {
       }).catch((error) => {
         // console.log(error);
         if (error.code === 'auth/argument-error') {
-          this.messageService.notifyMessage(this.translateService.instant('errorMessages.auth.argument.error'), 'alert alert-danger');
+          // this.messageService.notifyMessage(this.translateService.instant('errorMessages.auth.argument.error'), 'alert alert-danger');
           swal({text: this.translateService.instant('errorMessages.auth.argument.error'), icon: 'error'});
         } else {
           if (error.status === 401) {
-            this.messageService.notifyMessage(this.translateService.instant('errorMessages.auth.wrong.login'), 'alert alert-danger');
+            // this.messageService.notifyMessage(this.translateService.instant('errorMessages.auth.wrong.login'), 'alert alert-danger');
             swal({text: this.translateService.instant('errorMessages.auth.wrong.login'), icon: 'error'});
           } else {
-            this.messageService.notifyMessage(this.translateService.instant('errorMessages.auth.login.not.login'), 'alert alert-danger');
+            // this.messageService.notifyMessage(this.translateService.instant('errorMessages.auth.login.not.login'), 'alert alert-danger');
             swal({text: this.translateService.instant('errorMessages.auth.login.not.login'), icon: 'error'});
           }
         }

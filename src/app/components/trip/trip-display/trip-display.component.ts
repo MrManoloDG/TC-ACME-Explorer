@@ -138,7 +138,7 @@ export class TripDisplayComponent extends TranslatableComponent implements OnIni
         this.tripService.applyTrip(idTrip, currActor._id)
           .then((appli) => {
             // console.log('appli detail: ' + appli);
-            this.messageService.notifyMessage('application.appli.success', 'alert alert-success');
+            // this.messageService.notifyMessage('application.appli.success', 'alert alert-success');
 
             swal({text: this.translateService.instant('application.appli.success'), icon: 'success'});
 
@@ -150,7 +150,7 @@ export class TripDisplayComponent extends TranslatableComponent implements OnIni
             console.error(err.status + ' - ' + err.error);
             const mes = err.status + ' - ' + err.error;
             // this.messageService.notifyMessage('application.appli.fail', 'alert alert-danger');
-            this.messageService.notifyMessage(mes, 'alert alert-danger');
+            // this.messageService.notifyMessage(mes, 'alert alert-danger');
             swal({text: mes, icon: 'error'});
           });
 
