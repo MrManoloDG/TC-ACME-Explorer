@@ -7,6 +7,7 @@ import { environment } from 'src/environments/environment';
 import { MessageService } from './message.service';
 import { TranslateService } from '@ngx-translate/core';
 import { Subject } from 'rxjs';
+import swal from 'sweetalert';
 
 const httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -60,11 +61,13 @@ export class ActorService {
             }
             this.http.put(url, body, httpOptions).toPromise()
               .then(res => {
-                this.messageService.notifyMessage(mes, 'alert alert-success');
+                swal({text: mes, icon: 'success'});
+                // this.messageService.notifyMessage(mes, 'alert alert-success');
                 this.actorUpdated.next(true);
                 resolve(res);
               }, err => {
-                this.messageService.notifyMessage(mes, 'alert alert-danger');
+                swal({text: mes, icon: 'success'});
+                // this.messageService.notifyMessage(mes, 'alert alert-danger');
                 this.actorUpdated.next(false);
                 reject(err);
               });
