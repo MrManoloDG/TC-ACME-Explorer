@@ -16,9 +16,3 @@ Uso de librería SweetAlert, para uso de alerts mas atractivos visualmente.
 Uso de la libreria angular-6-datatable, para los datatables.
 Desarrollo de los componentes de lista de sponsorships, ademas de mostrar un sponsorship y su imagen en los detalles del viaje si esta pagado. 
 
-## Usuarios
-explorer: ex2@gmail.com / 123456
-manager:  man@gmail.com / 123456 /// develop: man2@gmail.com / 123456
-admin: mailPrueba@mailprueba.com / 12345678
-auditor: auditor@gmail.com / 123456
-sponsor: sponsorMail@sponsor.com / 12345678
